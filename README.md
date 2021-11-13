@@ -168,6 +168,7 @@ Lalu edit file konfigurasi DHCP pada `/etc/dhcp/dhcpd.conf`. Tambahkan script be
 ```
 subnet 10.21.2.4 netmask 255.255.255.0 {
     range 10.21.1.20 10.21.1.99;
+	range 10.21.1.99 10.21.1.169;
     option routers 10.21.2.1;
     option broadcast-address 10.21.2.255;
     option domain-name-servers 20.42.4.2;
