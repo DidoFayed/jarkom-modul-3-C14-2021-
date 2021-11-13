@@ -175,14 +175,14 @@ Edit file konfigurasi interface `/etc/default/isc-dhcp-server` pada DHCP Server 
 Lalu edit file konfigurasi DHCP pada `/etc/dhcp/dhcpd.conf`. Tambahkan script berikut.
 
 ```
-subnet 10.21.2.4 netmask 255.255.255.0 {
-    range 10.21.1.20 10.21.1.99;
-	range 10.21.1.99 10.21.1.169;
-    option routers 10.21.2.1;
-    option broadcast-address 10.21.2.255;
-    option domain-name-servers 20.42.4.2;
-    default-lease-time 600;
-    max-lease-time 7200;
+subnet 10.21.1.0 netmask 255.255.255.0 {
+        range 10.21.1.20 10.21.1.99;
+        range 10.21.1.150 10.21.1.169;
+        option routers 10.21.1.1;
+        option broadcast-address 10.21.1.255;
+        option domain-name-servers 10.21.2.2;
+        default-lease-time 600;
+        max-lease-time 7200;
 }
 ```
 
@@ -198,7 +198,26 @@ Namun, ternyata terdapat error sebagai berikut:
 Client yang melalui Switch3 mendapatkan range IP dari 10.21.3.30 - 10.21.3.50.
 
 ### Cara Pengerjaan
+Edit file konfigurasi DHCP pada `/etc/dhcp/dhcpd.conf`. Tambahkan script berikut.
 
+```
+subnet 10.21.3.0 netmask 255.255.255.0 {
+        range 10.21.3.30 10.21.3.50;
+        option routers 10.21.3.1;
+        option broadcast-address 10.21.3.255;
+        option domain-name-servers 10.21.2.2;
+        default-lease-time 600;
+        max-lease-time 7200;
+}
+```
+
+Lakukan restart service isc-dhcp-server.
+```
+service isc-dhcp-server restart
+```
+Namun, ternyata terdapat error sebagai berikut:
+
+![ssmodul3](https://github.com/DidoFayed/jarkom-modul-3-C14-2021-/blob/main/ssmodul3/3_4_ErrorDHCPRestart2.png)
 
 ## Kendala yang Dialami Selama Pengerjaan 
 Kendala yang Dialami Selama Pengerjaan 
