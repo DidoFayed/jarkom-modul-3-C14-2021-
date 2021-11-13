@@ -16,7 +16,7 @@ Dilakukan modifikasi terhadap topologi yang telah dibuat sebelumnya serta ditamb
 - Switch1 terhubung dengan node client **Loguetown** dan **Alabasta**.
 - Switch2 terhubung dengan node server **EniesLobby**, **Water7**, dan **Jipangu**.
 - Switch3 terhubung dengan node client **Tottoland** dan **Skypie**.
-![ssmodul3](https://github.com/DidoFayed/jarkom-modul-3-C14-2021/blob/main/ssmodul3/1_1_Topology.png)
+![ssmodul3](https://github.com/DidoFayed/jarkom-modul-3-C14-2021-/blob/main/ssmodul3/1_1_Topology.png)
 
 Lalu, dilakukan pengisian settingan network untuk masing-masing node dengan fitur `Edit network configuration` sebagai berikut.
 
@@ -150,7 +150,7 @@ apt-get install isc-dhcp-relay
 ```
 Isikan IP Server dengan IP Jipangu sebagai DHCP Server yaitu `10.21.2.4` yang relay DHCP meneruskan request ke Server tersebut. Serta isikan interfaces dengan `eth1 eth2 eth3`. Kosongkan untuk selanjutnya.
 
-![ssmodul3](https://github.com/DidoFayed/jarkom-modul-3-C14-2021/blob/main/ssmodul3/1_4_a_DHCPRelaySetup.png)
+![ssmodul3](https://github.com/DidoFayed/jarkom-modul-3-C14-2021-/blob/main/ssmodul3/1_4_a_DHCPRelaySetup.png)
 
 
 ## Soal 3
@@ -160,7 +160,7 @@ Client yang melalui Switch1 mendapatkan range IP dari `10.21.1.20` sampai `10.21
 ### Cara Pengerjaan
 Edit file konfigurasi interface `/etc/default/isc-dhcp-server` pada DHCP Server Jipangu. Isikan dengan `eth1 eth2 eth3`.
 
-![ssmodul3](https://github.com/DidoFayed/jarkom-modul-3-C14-2021/blob/main/ssmodul3/3_1_InterfacesJipangu.png)
+![ssmodul3](https://github.com/DidoFayed/jarkom-modul-3-C14-2021-/blob/main/ssmodul3/3_1_InterfacesJipangu.png)
 
 Lalu edit file konfigurasi DHCP pada `/etc/dhcp/dhcpd.conf`. Tambahkan script berikut.
 
@@ -181,7 +181,7 @@ service isc-dhcp-server restart
 ```
 Namun, ternyata terdapat error sebagai berikut:
 
-![ssmodul3](https://github.com/DidoFayed/jarkom-modul-3-C14-2021/blob/main/ssmodul3/3_3_ErrorDHCPRestart.png)
+![ssmodul3](https://github.com/DidoFayed/jarkom-modul-3-C14-2021-/blob/main/ssmodul3/3_3_ErrorDHCPRestart.png)
 
 ## Soal 4
 Client yang melalui Switch3 mendapatkan range IP dari 10.21.3.30 - 10.21.3.50.
