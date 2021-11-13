@@ -16,6 +16,7 @@ Dilakukan modifikasi terhadap topologi yang telah dibuat sebelumnya serta ditamb
 - Switch1 terhubung dengan node client **Loguetown** dan **Alabasta**.
 - Switch2 terhubung dengan node server **EniesLobby**, **Water7**, dan **Jipangu**.
 - Switch3 terhubung dengan node client **Tottoland** dan **Skypie**.
+
 ![ssmodul3](https://github.com/DidoFayed/jarkom-modul-3-C14-2021-/blob/main/ssmodul3/1_1_Topology.png)
 
 Lalu, dilakukan pengisian settingan network untuk masing-masing node dengan fitur `Edit network configuration` sebagai berikut.
