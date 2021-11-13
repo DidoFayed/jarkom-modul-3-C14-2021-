@@ -149,7 +149,7 @@ Install **isc-dhcp-relay** pada DHCP Relay **Foosha**.
 ```
 apt-get install isc-dhcp-relay
 ```
-Isikan IP Server dengan IP Jipangu sebagai DHCP Server yaitu `10.21.2.4` yang relay DHCP meneruskan request ke Server tersebut. Serta isikan interfaces dengan `eth1 eth2 eth3`. Kosongkan untuk selanjutnya.
+Isikan IP Server dengan IP Jipangu sebagai DHCP Server yaitu `10.21.2.4` yang relay DHCP meneruskan request ke Server tersebut. Kemudian memasang DHCP Relay dengan mengisi interfaces dengan `eth1 eth2 eth3`. Kosongkan untuk selanjutnya.
  
 ![ssmodul3](https://github.com/DidoFayed/jarkom-modul-3-C14-2021-/blob/main/ssmodul3/1_4_a_DHCPRelaySetup.png) 
 
@@ -166,14 +166,14 @@ Edit file konfigurasi interface `/etc/default/isc-dhcp-server` pada DHCP Server 
 Lalu edit file konfigurasi DHCP pada `/etc/dhcp/dhcpd.conf`. Tambahkan script berikut. 
 
 ``` 
-subnet 10.21.2.4 netmask 255.255.255.0 { 
-    range 10.21.1.20 10.21.1.99;
-	range 10.21.1.99 10.21.1.169; 
-    option routers 10.21.2.1; 
-    option broadcast-address 10.21.2.255;
-    option domain-name-servers 20.42.4.2;
-    default-lease-time 600;
-    max-lease-time 7200;
+subnet 10.21.1.0 netmask 255.255.255.0 { 
+	range 10.21.1.20 10.21.1.99;
+	range 10.21.1.150 10.21.1.169; 
+	option routers 10.21.2.1; 
+	option broadcast-address 10.21.2.255;
+	option domain-name-servers 20.42.4.2;
+	default-lease-time 600;
+	max-lease-time 7200;
 }
 ```
 
@@ -193,6 +193,6 @@ Client yang melalui Switch3 mendapatkan range IP dari 10.21.3.30 - 10.21.3.50.
 
 ## Kendala yang Dialami Selama Pengerjaan 
 Kendala yang Dialami Selama Pengerjaan 
-1. Beberapa teman yang menggunakan sistem operasi selain Linux mengalami kesulitan dalam mengerjakan, terdapat error ketika menjalankan GNS3, dan lain-lain. 
-2. Kessulitan untuk mengimport file OVA pada virtualbox. Terdapat berbgai unsolved error pada saat create host manager
-4. Terdapat error ketika mencoba untuk me-restart service isc-dhcp-server setelah mengedit file konfigurasi DHCP pada `/etc/dhcp/dhcpd.conf`, sehingga client yang melalui Switch1 tidak bisa mendapatkan konfigurasi IP dari DHCP Server.
+1. Beberapa teman yang menggunakan sistem operasi selain Linux mengalami kesulitan dalam mengerjakan, terdapat error ketika menjalankan GNS3 dan gagal untuk import project ke windows. 
+2. Kesulitan untuk mengimport file OVA pada virtualbox. Terdapat berbgai unsolved error pada saat create host manager
+3. Terdapat error ketika mencoba untuk me-restart service isc-dhcp-server setelah mengedit file konfigurasi DHCP pada `/etc/dhcp/dhcpd.conf`, sehingga client yang melalui Switch1 tidak bisa mendapatkan konfigurasi IP dari DHCP Server.
